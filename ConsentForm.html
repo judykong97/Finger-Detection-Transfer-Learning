@@ -1,0 +1,60 @@
+<!-- Consent Form -->
+<div class="consent">
+<h2>Finger Dataset Collection Consent Form</h2>
+<p>This task is part of a research study conducted by Jeffrey Bigham at Carnegie Mellon University and is funded by Carnegie Mellon University.</p>
+<p>The purpose of the research is to make everyday interfaces more accessible to people with visual impairment. The dataset collected will be used to train a model that detects users' finger locations and will be publically available.</p>
+
+<h3>Procedures</h3>
+<p>If you participate, you will be ask to take and upload 5 pictures, including 4 pictures of your index finger in front of some appliance, and 1 picture of the same background without your finger.</p>
+<p>The duration of these tasks will be at least one minute and no more than one hour. </p>
+
+<h3>Participant Requirements</h3>
+<p>Participation in this study is limited to individuals aged 18 and older.</p>
+
+<h3>Risks</h3>
+<p>The risks and discomfort associated with participation in this study are no greater than those ordinarily encountered in daily life or during other online activities. As with other tasks in your daily life, you may tire or become bored completing our tasks. There is also a risk of confidentiality being breached.</p>
+
+<h3>Benefits</h3>
+<p>There may be no personal benefit from your participation in the study but the knowledge received may be of value to humanity.</p>
+
+<h3>Compensation & Costs</h3>
+<p>You will be compensated for your participation in this study with $10. There will be no cost to you if you participate in this study.</p>
+
+<h3>Confidentiality</h3>
+<p>The images you upload will be included in a publically available dataset. To protect your privacy, you will be asked to upload images that do not contain any personally identifiable information, and any image of including personal identifiable information will be removed from the data set.</p>
+
+<h3>Right to Ask Questions & Contact Information</h3>
+<p>If you have any questions about this study, you should feel free to ask them by contacting the Principal Investigator now at Jeffrey P. Bigham, Human-Computer Interaction Institute, 5000 Forbes Ave, Pittsburgh, PA 15213. (412) 945-0708, jbigham@cs.cmu.edu. If you have questions later, desire additional information, or wish to withdraw your participation please contact the Principal Investigator by mail, phone or e-mail in accordance with the contact information listed above.</p> 
+<p>If you have questions pertaining to your rights as a research participant; or to report objections to this study, you should contact the Office of Research integrity and Compliance at Carnegie Mellon University. Email: irb-review@andrew.cmu.edu . Phone: 412-268-1901 or 412-268-5460.</p>
+<h4>Voluntary Participation</h4>
+<p>Your participation in this research is voluntary. You may discontinue participation at any time during the research activity.</p>
+
+
+<label><input type="radio" name="age18" value="yes">Yes <input type="radio" name="age18" value="no">No</label>&nbsp&nbsp&nbsp&nbspI am age 18 or older. <br>
+<label><input type="radio" name="understood" value="yes">Yes <input type="radio" name="understood" value="no">No</label>&nbsp&nbsp&nbsp&nbspI have read and understand the information above. <br>
+<label><input type="radio" name="public" value="yes">Yes <input type="radio" name="public" value="no">No</label>&nbsp&nbsp&nbsp&nbspI understand that the images I upload will be included in a publically available data set. <br>
+<label><input type="radio" name="want to" value="yes">Yes <input type="radio" name="want to" value="no">No</label>&nbsp&nbsp&nbsp&nbspI want to participate in this research and continue with the task. <br>
+<div style="text-align:center;">
+<button id="consent_button" type="button" style="margin: 10px 0px 10px 0px; font-size: 32px">Continue to the Task</button>
+</div>
+</div>
+
+<!-- Instructions -->
+<div class="task" style="display: none">
+</div>
+
+<script>
+  check_consent = function(event) {
+      var agreed = 0;
+      $('input[type="radio"]:checked').each(function() {
+        if (this.value == "yes") {
+            agreed += 1;
+        }
+      });
+      if (agreed >= 4) {
+          $(".consent").css("display", "none");
+          $(".task").css("display", "block");
+      }
+  };
+  $("#consent_button").on("click", check_consent);
+</script>
